@@ -16,5 +16,22 @@ namespace VectorTruck
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double X, Y;
+
+            double.TryParse(txtX.Text, out X);
+            double.TryParse(txtY.Text, out Y);
+
+            Vector2 testVect = new Vector2(X, Y);
+            Vector2 unitVect = testVect.Unit;
+
+            lblMagnitude.Text = "M: " + testVect.Magnitude.ToString();
+            lblUX.Text = "uX: " + unitVect.X.ToString();
+            lblUY.Text = "uY: " + unitVect.Y.ToString();
+
+            MessageBox.Show((testVect * 5).ToString());
+        }
     }
 }
