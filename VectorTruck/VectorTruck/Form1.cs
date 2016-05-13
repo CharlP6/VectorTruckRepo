@@ -31,7 +31,10 @@ namespace VectorTruck
             lblUX.Text = "uX: " + unitVect.X.ToString();
             lblUY.Text = "uY: " + unitVect.Y.ToString();
 
-            MessageBox.Show((testVect * 5).ToString());
+            Vector2 rotationPoint = new Vector2(1, 1);
+            Vector2 pTestPoint = testVect.RotateVectorAboutPoint(Math.PI / 4, rotationPoint);
+
+            MessageBox.Show(pTestPoint.ToString());
         }
     }
 }

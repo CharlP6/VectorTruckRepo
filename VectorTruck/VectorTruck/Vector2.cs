@@ -30,7 +30,7 @@ namespace VectorTruck
             }
 
         }
-
+        #region Properties
         public double X
         {
             get
@@ -70,6 +70,17 @@ namespace VectorTruck
                 return unit;
             }
         }
+        #endregion
+
+        #region Manipulation
+
+        public Vector2 NormalVector
+        {
+            get
+            {
+                return new Vector2(-y, x);
+            }
+        }
 
         public Vector2 RotateVector(double AngleInRadians)
         {
@@ -83,6 +94,13 @@ namespace VectorTruck
 
             return new Vector2(rX, rY);
         }
+
+        public Vector2 RotateVectorAboutPoint(double AngleInRadians, Vector2 RotationPoint)
+        {
+            Vector2 radius = this + (-1 * RotationPoint);
+            return RotationPoint + RotationPoint.RotateVector(AngleInRadians);
+        }
+        #endregion
 
         #region Operators
 
